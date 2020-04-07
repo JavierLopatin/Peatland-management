@@ -1,10 +1,10 @@
-### This R-code provide the Modeling appoach used in the manuscript                                                       
-#### author: Javier Lopatin                                                     
-#### mail: javierlopatin@gmail.com                                              
-                                                                           
-#### Manuscript: Using aboveground vegetation attributes as proxies for mapping 
-#### peatland belowground carbon stocks                                         
-                                                                            
+### This R-code provide the Modeling appoach used in the manuscript
+#### author: Javier Lopatin
+#### mail: javierlopatin@gmail.com
+
+#### Manuscript: Using aboveground vegetation attributes as proxies for mapping
+#### peatland belowground carbon stocks
+
 
 
 #######################################################################################
@@ -130,8 +130,8 @@ pls1 = plspm(data[data$Uso == 'Conservacion',], inner, outer, modes, maxiter= 50
               scheme = "factor", scaled = T)
 
 # model scores
-Scores <- PLS$scores; colnames(Scores) <- colnames(inner) 
-# conservation and productive data 
+Scores <- PLS$scores; colnames(Scores) <- colnames(inner)
+# conservation and productive data
 obs_cons = grep( "Conservacion", data$Uso )
 obs_prod = grep( "Productivo", data$Uso )
 Scores1 <- Scores[obs_cons, ]
@@ -151,15 +151,15 @@ H1     <- model1$H[1] + model1$H[2]*Scores1[,1]
 BM1    <- model1$BM[1] + model1$BM[2]*Scores1[,1] + model1$BM[3]*Scores1[,2]
 Rich1  <- model1$Rich[1] + model1$Rich[2]*Scores1[,1] + model1$Rich[3]*Scores1[,2]
 Depth1 <- model1$Depth[1] + model1$Depth[2]*Scores1[,1] + model1$Depth[3]*Scores1[,3] + model1$Depth[4]*Scores1[,4]
-C1     <- model1$C[1] + model1$C[2]*Scores1[,1] + model1$C[3]*Scores1[,2] + model1$C[4]*Scores1[,3] + 
+C1     <- model1$C[1] + model1$C[2]*Scores1[,1] + model1$C[3]*Scores1[,2] + model1$C[4]*Scores1[,3] +
           model1$C[5]*Scores1[,4] + model1$C[6]*Scores1[,5]
 
 # obtain fit
-r2_H1    = cor(H1, Scores1[,2], method="pearson")^2 
-r2_BM1   = cor(BM1, Scores1[,3], method="pearson")^2   
-r2_Rich1 = cor(Rich1, Scores1[,4], method="pearson")^2 
-r2_Depth1= cor(Depth1, Scores1[,5], method="pearson")^2  
-r2_C1    = cor(C1, Scores1[,6], method="pearson")^2   
+r2_H1    = cor(H1, Scores1[,2], method="pearson")^2
+r2_BM1   = cor(BM1, Scores1[,3], method="pearson")^2
+r2_Rich1 = cor(Rich1, Scores1[,4], method="pearson")^2
+r2_Depth1= cor(Depth1, Scores1[,5], method="pearson")^2
+r2_C1    = cor(C1, Scores1[,6], method="pearson")^2
 
 # Managed site
 model2 <- compare$group2
@@ -168,15 +168,15 @@ H2     <- model2$H[1] + model2$H[2]*Scores2[,1]
 BM2    <- model2$BM[1] + model2$BM[2]*Scores2[,1] + model2$BM[3]*Scores2[,2]
 Rich2  <- model2$Rich[1] + model2$Rich[2]*Scores2[,1] + model2$Rich[3]*Scores2[,2]
 Depth2 <- model2$Depth[1] + model2$Depth[2]*Scores2[,1] + model2$Depth[3]*Scores2[,3] + model2$Depth[4]*Scores2[,4]
-C2     <- model2$C[1] + model2$C[2]*Scores2[,1] + model2$C[3]*Scores2[,2] + model2$C[4]*Scores2[,3] + 
+C2     <- model2$C[1] + model2$C[2]*Scores2[,1] + model2$C[3]*Scores2[,2] + model2$C[4]*Scores2[,3] +
           model2$C[5]*Scores2[,4] + model2$C[6]*Scores2[,5]
 
 # obtain fit
-r2_H2     = cor(H2, Scores2[,2], method="pearson")^2 
-r2_BM2    = cor(BM2, Scores2[,3], method="pearson")^2   
-r2_Rich2  = cor(Rich2, Scores2[,4], method="pearson")^2 
-r2_Depth2 = cor(Depth2, Scores2[,5], method="pearson")^2  
-r2_C2     = cor(C2, Scores2[,6], method="pearson")^2 
+r2_H2     = cor(H2, Scores2[,2], method="pearson")^2
+r2_BM2    = cor(BM2, Scores2[,3], method="pearson")^2
+r2_Rich2  = cor(Rich2, Scores2[,4], method="pearson")^2
+r2_Depth2 = cor(Depth2, Scores2[,5], method="pearson")^2
+r2_C2     = cor(C2, Scores2[,6], method="pearson")^2
 
 ### estimate global goodness-of-fit (GoF)
 GoF1 <- sqrt( mean(PLS$outer_model$communality) * mean( c(r2_H1, r2_BM1, r2_Rich1, r2_Depth1, r2_C1) ) )
@@ -187,19 +187,3 @@ GoF2 <- sqrt( mean(PLS$outer_model$communality) * mean( c(r2_H2, r2_BM2, r2_Rich
 ################################################################################
 ##### END MANAGEMENT DIFFERENCE ASSESSMENT
 ################################################################################
-
-
-
-```R
-
-```
-
-
-```R
-
-```
-
-
-```R
-
-```
