@@ -16,7 +16,7 @@
 
 ```R
 # set working directory
-setwd("C:/Users/Lopatin/Dropbox/PhD/Peatland/Managements difference")
+setwd("directory")
 ```
 
 
@@ -73,12 +73,12 @@ modes = rep("A", 6)
 # selection is done by removing variables with outer correlation (l) below 0.5
 # here it is the final selection
 outer = list (c("Altura_vegetacion_cm"),                               # heigts
-              c("NNMDS.sp1"),                              # FC
+              c("NNMDS.sp1"),                                          # FC
               c("Biomasa_herbaceas_kg_m2","Biomasa_arbustivas_kg_m2"), # Biomass
               c("gramm_richness","Herb_richness"),                     # Richness
               c("Depth"),                                              # soil depth
-              c("NCarbono_Subterraneo_kg_m2","Carbono_musgo_kg_m2",
-                "Carbono_R1_kg_m2"))                                   # C
+              c("NCarbono_Subterraneo_kg_m2","Carbono_musgo_kg_m2",    # C
+                "Carbono_R1_kg_m2"))
 
 # Turn some variable into negative values. This is necessary to run PLS-PM when
 # variables appear as negative in the outer model. You need to run plspm once
