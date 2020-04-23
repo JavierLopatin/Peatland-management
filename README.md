@@ -1,5 +1,5 @@
 # Peatland-management
-#### Here, we explore the avove- belowground interdependencies differences between a peatland with conservation and productive managements in their carbon stock
+#### Here, we explore the above- belowground interdependencies differences between a peatland with conservation and productive managements in their carbon stocks
 
 ##### author: Javier Lopatin
 ##### mail: javierlopatin@gmail.com
