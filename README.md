@@ -43,7 +43,7 @@ data <- read.table("data/Peatland1.csv", header=T, sep=",", dec=".")
 names(data)
 
 # load Floristic composition and biodiversity
-# data produced in https://github.com/JavierLopatin/
+# data produced in https://github.com/JavierLopatin/Peatland-management/blob/master/ordination_diversity.R
 ordination <- read.table("data/ordination.csv", header=T, sep=",", dec=".")
 PFT <- read.table("data/PFT.csv", header=T, sep=",", dec=".")
 biodiv <- read.table("data/diversity.csv", header=T, sep=",", dec=".")
@@ -182,7 +182,8 @@ save.image("compare.RData")
 ```R
 library(raster)
 
-# raster predictions using RF
+# raster predictions using RF:
+# https://github.com/JavierLopatin/Peatland-management/blob/master/create_variable_maps.R
 img = stack('Managements_difference/RF_predictors.tif')
 names(img) = PLS$model$gen$mvs_names[1:6]
 
